@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Myrror - feelings1</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Myrror</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <!--  <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul> -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>How do you feel about your body?</h1>
+                <div class="radio col-lg-8 col-lg-offset-2">
+                    <label><input type="radio" name="optradio" value="1" id ="a1">1 - Very Unsatisfied</label>
+                </div>
+                <div class="radio col-lg-8 col-lg-offset-2 ">
+                    <label><input type="radio" name="optradio" value="2" id="a2">2 - Unsatisfied</label>
+                </div>
+                <div class="radio col-lg-12 text-center">
+                    <label><input type="radio" name="optradio" value="3" id="a3">3 - Neutral</label>
+                </div>
+                <div class="radio col-lg-12 text-center">
+                    <label><input type="radio" name="optradio" value="4" id="a4">4 - Satisfied</label>
+                </div>
+                <div class="radio col-lg-12 text-center">
+                    <label><input type="radio" name="optradio" value="5" id="a5">5 - Satisfied</label>
+                </div>
+                <span class="input-group-btn" id ="subbtn1">
+                            
+                            <a href="sizing.html" id="subbtn" class="btn btn-default" onclick="myFunction()">
+                            Submit</a>
+                         
+
+                        </span>    
+
+                        <script>
+                        var myDataRef = new Firebase('https://luminous-heat-3152.firebaseio.com/Feelings1');
+                        function myFunction() {
+                            if(document.getElementById("a1").checked == true) {
+                                var sizeinches = $('#a1').val();
+                              myDataRef.push({size: sizeinches});
+                            }
+                            else if(document.getElementById("a2").checked == true) {
+                                var sizeinches = $('#a2').val();
+                              myDataRef.push({size: sizeinches});
+                            }
+                            else if(document.getElementById("a3").checked == true) {
+                                var sizeinches = $('#a3').val();
+                              myDataRef.push({size: sizeinches});
+                            }
+                            else if(document.getElementById("a4").checked == true) {
+                                var sizeinches = $('#a4').val();
+                              myDataRef.push({size: sizeinches});
+                            }
+                            else if(document.getElementById("a5").checked == true) {
+                                var sizeinches = $('#a5').val();
+                              myDataRef.push({size: sizeinches});
+                            }
+                        }
+
+                        </script>         
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
