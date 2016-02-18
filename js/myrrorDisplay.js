@@ -58,8 +58,13 @@ $( window ).load (
 	    	var winWidth = $(window).width();
 
 	        var data = queryString["size"]+"in";
+	        var sizeOnly = queryString["size"]
+	        
+	        sizeOnly = (sizeOnly/1.565)/0.97
+	        sizeOnly = sizeOnly+"in" // cast to inches not pixels
+	        
 	        $("#rectangle-location").css("height",fixedHeight);
-	        $("#rectangle-location").css("width",data);
+	        $("#rectangle-location").css("width",sizeOnly);
 	        $("#rectangle-location").css("border", "3px solid blue");
 	    }
 }));
