@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Myrror - Female Sizing</title>
+
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+		<style>
+		body {
+				padding-top: 70px;
+				/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+		}
+		</style>
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+				<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+				<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+</head>
+
+<body>
+
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="#">Myrror</a>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							 <!--  <ul class="nav navbar-nav">
+										<li>
+												<a href="#">About</a>
+										</li>
+										<li>
+												<a href="#">Services</a>
+										</li>
+										<li>
+												<a href="#">Contact</a>
+										</li>
+								</ul> -->
+						</div>
+						<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container -->
+		</nav>
+
+		<!-- Page Content -->
+		<div class="container">
+
+				<div class="row">
+						<div class="col-xl-12 text-center">
+								<h2>Select the option that you feel is closest to your body size.</h2>
+						</div>
+								<div class="radio col-xl-12 text-center">
+										<dl class="dl-horizontal" style="margin-left:0px">
+										<dt><img src="avatars/skinnyWoman.png" alt="" style="width:48px;height:90px;"></dt>
+										<dd><label><input type="radio" name="optradio" value="1" id ="size1">1</label></dd>
+										</dl>
+								</div>
+								<div class="radio col-xl-12 text-center ">
+										<dl class="dl-horizontal">
+										<dt><label><input type="radio" name="optradio" value="2" id="size2">2</label></dt>
+										</dl>
+								</div>
+								<div class="radio col-xl-12 text-center ">
+										<dl class="dl-horizontal">
+										<dt><label><input type="radio" name="optradio" value="3" id="size3">3</label></dt>
+										</dl>
+								</div>
+								<div class="radio col-xl-12 text-center ">
+										<dl class="dl-horizontal">
+										<dt><label><input type="radio" name="optradio" value="4" id="size4">4</label></dt>
+										</dl>
+								</div>
+								<div class="radio col-xl-12 text-center">
+												<dl class="dl-horizontal">
+												<dt><img src="avatars/averageWoman.png" alt="" style="width:48px;height:90px;"><br>Average</dt>
+												<dd><label><input type="radio" name="optradio" value="5" id ="size5">5</label></dd>
+												</dl>
+										</div>
+								<div class="radio col-xl-12 text-center ">
+										<dl class="dl-horizontal">
+										<dt><label><input type="radio" name="optradio" value="6" id="size6">6</label></dt>
+										</dl>
+								</div>
+								<div class="radio col-xl-12 text-center ">
+										<dl class="dl-horizontal">
+										<dt><label><input type="radio" name="optradio" value="7" id="size7">7</label></dt>
+										</dl>
+								</div>
+								<div class="radio col-xl-12 text-center ">
+										<dl class="dl-horizontal">
+										<dt><label><input type="radio" name="optradio" value="8" id="size8">8</label></dt>
+										</dl>
+								</div>
+								<div class="radio col-xl-12 text-center ">
+										<dl class="dl-horizontal">
+										<dt><img src="avatars/largerWoman.png" alt="" style="width:48px;height:90px;"></dt>
+										<dd><label><input type="radio" name="optradio" value="9" id="size9">9</label></dd>
+										</dl>
+								</div>
+						<div class="col-xl-12 text-center">
+								<div class="input-group-btn" id ="subbtn1">
+												<a href="projection.html" id="subbtn" class="btn btn-default" onclick="myFunction()">
+														Submit</a>
+								</div>
+						</div>
+
+												<script>
+												var myDataRef = new Firebase('https://luminous-heat-3152.firebaseio.com/Waist');
+
+												function myFunction() {
+														//Interpolate to find what size 
+														//This is circumference from CDC 2007-2010 data
+														var skinniest = 28.0; //
+														var sizeAvg = 37.5; //how to determine rect size???
+														var largest = 49.0; //
+														
+														if(document.getElementById("size1").checked == true) {
+																var sizeinches = skinniest;
+															myDataRef.push({size: sizeinches});
+														}
+														else if(document.getElementById("size2").checked == true) {
+															var sizeinches = interpolate(skinniest, sizeAvg, $('#size2').val());
+															myDataRef.push({size: sizeinches});
+														}
+														else if(document.getElementById("size3").checked == true) {
+																var sizeinches = interpolate(skinniest, sizeAvg, $('#size3').val());
+															myDataRef.push({size: sizeinches});
+														}
+														else if(document.getElementById("size4").checked == true) {
+																var sizeinches = interpolate(skinniest, sizeAvg, $('#size4').val());
+															myDataRef.push({size: sizeinches});
+														}
+														else if(document.getElementById("size5").checked == true) {
+																var sizeinches = sizeAvg;
+															myDataRef.push({size: sizeinches});
+														}
+														else if(document.getElementById("size6").checked == true) {
+																var sizeinches = interpolate(sizeAvg, largest, $('#size6').val());
+															myDataRef.push({size: sizeinches});
+														}
+														else if(document.getElementById("size7").checked == true) {
+																var sizeinches = interpolate(sizeAvg, largest, $('#size7').val());
+															myDataRef.push({size: sizeinches});
+														}
+														else if(document.getElementById("size8").checked == true) {
+																var sizeinches = interpolate(sizeAvg, largest, $('#size8').val());
+															myDataRef.push({size: sizeinches});
+														} else if(document.getElementById("size9").checked == true) {
+																var sizeinches = largest;
+															myDataRef.push({size: sizeinches});
+														}
+												}
+
+												function interpolate(start, end, size) {
+													var intervalSize = (end-start)/4
+													return String((start + intervalSize*(parseInt(size)-1)))
+												}
+
+												</script>
+<!--             </div> -->
+				</div>
+				<!-- /.row -->
+
+		</div>
+		<!-- /.container -->
+
+		<!-- jQuery Version 1.11.1 -->
+		<script src="js/jquery.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Myrror - projections</title>
+    <title>Added Pre-Survey Female1</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +19,6 @@
     body {
         padding-top: 70px;
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-        background-color: black;
     }
     </style>
 
@@ -30,9 +29,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
 </head>
 
 <body>
+
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -48,7 +51,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--  <ul class="nav navbar-nav">
+               <!--  <ul class="nav navbar-nav">
                     <li>
                         <a href="#">About</a>
                     </li>
@@ -69,14 +72,28 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12 text-center" >
-                <div id="rectangle-location">
-                    <h2>Please look at the Myrror.</h2>
-                    <h3>This is the approximate waist size you selected.</h3>
-                </div>
-                <a href="projectionAverage.html" class="btn btn-default">Next</a>
-
-            </div>  
+            <div class="col-xl-12 text-center">
+                <section class="standard_pre_male" style = "text-align:center">  
+                        <form name="pre_survey" action="index_submit" method="get" accept-charset="utf-8">  
+                            <ul style="list-style-type:none">  
+                                <div>Do you think the media accurately represents the body size of the American population?</div>
+                                <div class="radio col-xl-8 col-xl-offset-2">
+                                    <label><input type="radio" name="optradio" value="1" id ="a1">Yes</label>
+                                </div>
+                                <div class="radio col-xl-8 col-xl-offset-2 ">
+                                    <label><input type="radio" name="optradio" value="2" id="a2">No</label>
+                                </div>
+                                <div class="radio col-xl-12 text-center">
+                                    <label><input type="radio" name="optradio" value="3" id="a3">I don't know</label>
+                                </div>
+                                <div class="input-group-btn" id ="subbtn1"></li> 
+                                <a class="btn btn-default" href="radioMale.html"> Next </a> 
+                            </ul>  
+                        </form> 
+                    <!-- <a class="btn btn-default page-scroll" href="choice.html" >Log-In</a> -->
+                    </section>  
+       
+            </div>
         </div>
         <!-- /.row -->
 
