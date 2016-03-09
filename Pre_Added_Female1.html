@@ -86,14 +86,35 @@
                                 <div class="radio col-xl-12 text-center">
                                     <label><input type="radio" name="optradio" value="3" id="a3">I don't know</label>
                                 </div>
-                                <div class="input-group-btn" id ="subbtn1"></li> 
-                                <a class="btn btn-default" href="radioMale.html"> Next </a> 
+                                <div class="input-group-btn" id ="subbtn1"></div> 
+                                <a class="btn btn-default" href="radioMale.html" onclick="myFunction()"> Next </a> 
+
+
+
+                                
                             </ul>  
                         </form> 
                     <!-- <a class="btn btn-default page-scroll" href="choice.html" >Log-In</a> -->
                     </section>  
        
             </div>
+            <script>
+                        var myDataRef = new Firebase('https://luminous-heat-3152.firebaseio.com/Accuracy');
+                        function myFunction() {
+                            if(document.getElementById("a1").checked == true) {
+                                var sizeinches = $('#a1').val();
+                              myDataRef.push({accurate: sizeinches});
+                            }
+                            else if(document.getElementById("a2").checked == true) {
+                                var sizeinches = $('#a2').val();
+                              myDataRef.push({accurate: sizeinches});
+                            }
+                            else if(document.getElementById("a3").checked == true) {
+                                var sizeinches = $('#a3').val();
+                              myDataRef.push({accurate: sizeinches});
+                            }
+
+                            </script>
         </div>
         <!-- /.row -->
 

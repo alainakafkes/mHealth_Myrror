@@ -88,9 +88,23 @@
         <div class="row" id = "yes">
             <div class="col-xl-12 text-center">
                 <h1>With what gender do you identify?</h1>
-				<a href="Pre_Standard_Male.html" class="btn btn-default"><h3>Male</h3></a>
-				<a href="Pre_Standard_Female.html" class="btn btn-default"><h3>Female</h3></a>
-            </div>      
+				<a href="Pre_Standard_Male.html" class="btn btn-default" onclick="myFunctionMale()"><h3>Male</h3></a>
+				<a href="Pre_Standard_Female.html" class="btn btn-default" onclick="myFunctionFemale()"><h3>Female</h3></a>
+            </div>  
+
+            <script>
+                        var myDataRef = new Firebase('https://luminous-heat-3152.firebaseio.com/Gender');
+                        function myFunctionMale() {
+                              myDataRef.push({Gender: "Male"});
+                            
+                        }
+
+                        function myFunctionFemale() {
+                              myDataRef.push({Gender: "Female"});
+                            
+                        }
+
+                        </script>        
         </div>
         <!-- /.row -->    
 

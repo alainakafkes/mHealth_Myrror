@@ -90,13 +90,13 @@
                 <h3>Were you surprised by the average size?</h3>
 
                 <div class="radio col-xl-8 col-xl-offset-2">
-                    <label><input type="radio" name="optradio" value="1" id ="a1">Yes, it was <b>larger</b> than I expected</label>
+                    <label><input type="radio" name="optradio2" value="1" id ="b1">Yes, it was <b>larger</b> than I expected</label>
                 </div>
                 <div class="radio col-xl-8 col-xl-offset-2 ">
-                    <label><input type="radio" name="optradio" value="2" id="a2">Yes, it was <b>smaller</b> than I expected</label>
+                    <label><input type="radio" name="optradio2" value="2" id="b2">Yes, it was <b>smaller</b> than I expected</label>
                 </div>
                 <div class="radio col-xl-12 text-center">
-                    <label><input type="radio" name="optradio" value="3" id="a3">No, it was about what I expected</label>
+                    <label><input type="radio" name="optradio2" value="3" id="b3">No, it was about what I expected</label>
                 </div>
 
                 <br>
@@ -104,19 +104,19 @@
                 <h3>After using Myrror, how do you feel about your body?</h3>
                 
                 <div class="radio col-xl-8 col-xl-offset-2">
-                    <label><input type="radio" name="optradio" value="1" id ="a1">1 - Very Unsatisfied</label>
+                    <label><input type="radio" name="optradio3" value="1" id ="c1">1 - Very Unsatisfied</label>
                 </div>
                 <div class="radio col-xl-8 col-xl-offset-2 ">
-                    <label><input type="radio" name="optradio" value="2" id="a2">2 - Unsatisfied</label>
+                    <label><input type="radio" name="optradio3" value="2" id="c2">2 - Unsatisfied</label>
                 </div>
                 <div class="radio col-xl-12 text-center">
-                    <label><input type="radio" name="optradio" value="3" id="a3">3 - Neutral</label>
+                    <label><input type="radio" name="optradio3" value="3" id="c3">3 - Neutral</label>
                 </div>
                 <div class="radio col-xl-12 text-center">
-                    <label><input type="radio" name="optradio" value="4" id="a4">4 - Satisfied</label>
+                    <label><input type="radio" name="optradio3" value="4" id="c4">4 - Satisfied</label>
                 </div>
                 <div class="radio col-xl-12 text-center">
-                    <label><input type="radio" name="optradio" value="5" id="a5">5 - Satisfied</label>
+                    <label><input type="radio" name="optradio3" value="5" id="c5">5 - Satisfied</label>
                 </div>
                 <div class="input-group-btn" id ="subbtn1">
 				
@@ -125,6 +125,67 @@
 				
                 <a href="home.html" class="btn btn-default" onclick="myFunction()"><h3>Start Over</h3></a>
             </div>
+
+
+
+
+
+            <script>
+                        var myDataRef = new Firebase('https://luminous-heat-3152.firebaseio.com/PostSurvey');
+                        function myFunction() {
+                            if(document.getElementById("a1").checked == true) {
+                                var sizeinches = $('#a1').val();
+                              myDataRef.push({accurate: sizeinches});
+                            }
+                            else if(document.getElementById("a2").checked == true) {
+                                var sizeinches = $('#a2').val();
+                              myDataRef.push({accurate: sizeinches});
+                            }
+                            else if(document.getElementById("a3").checked == true) {
+                                var sizeinches = $('#a3').val();
+                              myDataRef.push({accurate: sizeinches});
+                            }
+
+
+
+                            if(document.getElementById("b1").checked == true) {
+                                var sizeinches = $('#b1').val();
+                              myDataRef.push({surprise: sizeinches});
+                            }
+                            else if(document.getElementById("b2").checked == true) {
+                                var sizeinches = $('#b2').val();
+                              myDataRef.push({surprise: sizeinches});
+                            }
+                            else if(document.getElementById("b3").checked == true) {
+                                var sizeinches = $('#b3').val();
+                              myDataRef.push({surprise: sizeinches});
+                            }
+
+
+
+                            if(document.getElementById("c1").checked == true) {
+                                var sizeinches = $('#c1').val();
+                              myDataRef.push({feel: sizeinches});
+                            }
+                            else if(document.getElementById("c2").checked == true) {
+                                var sizeinches = $('#c2').val();
+                              myDataRef.push({feel: sizeinches});
+                            }
+                            else if(document.getElementById("c3").checked == true) {
+                                var sizeinches = $('#c3').val();
+                              myDataRef.push({feel: sizeinches});
+                            }
+                            else if(document.getElementById("c4").checked == true) {
+                                var sizeinches = $('#c4').val();
+                              myDataRef.push({feel: sizeinches});
+                            }
+                            else if(document.getElementById("c5").checked == true) {
+                                var sizeinches = $('#c5').val();
+                              myDataRef.push({feel: sizeinches});
+                            }
+                        }
+
+                        </script>     
             
         </div>
         <!-- /.row -->
