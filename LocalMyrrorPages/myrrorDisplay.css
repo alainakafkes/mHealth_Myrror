@@ -1,0 +1,31 @@
+
+#positiveMessage {
+	position:fixed;
+	bottom:0;
+	width:100%;
+	text-align: center
+}
+
+#rectangle-location {
+	height: 5in;
+  	width: 10in;
+  	border:  3px solid blue;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -75%);
+	z-index: 10;
+	visibility: hidden;
+}
+
+#avg-rect {
+	height: 4.75in;
+  	width: 10in; 
+  	border:  3px solid green;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	visibility: hidden;
+}
